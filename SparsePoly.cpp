@@ -21,12 +21,8 @@ double SparsePoly::evaluate(float x, Term* curr) const {
     } else {
         int d = curr->getDegree();
         int c = curr-> getCoeff();
-        float num = 0;
-        if(d == 0) {
-            num = c;
-        } else {
-            num = std::pow(x,d) * c;
-        }
+        float num = std::pow(x,d) * c;
+
         return num + evaluate(x,curr->getNext());
     }
 }
