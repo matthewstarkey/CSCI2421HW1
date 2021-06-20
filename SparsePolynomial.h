@@ -1,28 +1,26 @@
 //
-// Created by Matthew Starkey on 6/16/2021.
+// Created by Matth on 6/20/2021.
 //
-#pragma once
-#ifndef HW1_SPARSEPOLY_H
-#define HW1_SPARSEPOLY_H
+
+#ifndef HW1_SPARSEPOLYNOMIAL_H
+#define HW1_SPARSEPOLYNOMIAL_H
 #include "SparsePolyImp.h"
 #include <iostream>
 
-
-
-class SparsePoly : public SparsePolyImp {
+class SparsePolynomial : public SparsePolyImp{
 private:
     Term* head;
     int size;
     Term* getPointerTo(int degree, Term* termPtr);
     double evaluate(float x, Term* curr) const;
 public:
-    SparsePoly();
+    SparsePolynomial();
     bool add(int coeff, int degree);
     bool remove(int degree);
     void clear();
     double evaluate(float x) const;
-    friend std::ostream& operator<< (std::ostream& out, SparsePoly poly);
+    friend std::ostream& operator<< (std::ostream& out, SparsePolynomial poly);
 };
 
 
-#endif //HW1_SPARSEPOLY_H
+#endif //HW1_SPARSEPOLYNOMIAL_H

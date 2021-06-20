@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include "SparsePoly.h"
+#include "SparsePolynomial.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int main()
     cout << string(30, ' ')<< "Homework #1"  << endl;
     cout << string(80, '*')  << endl;
 
-    SparsePoly* poly = new SparsePoly();
+    SparsePolynomial* poly = new SparsePolynomial();
 
     poly->add(8,0);
     poly->add(-1,2);

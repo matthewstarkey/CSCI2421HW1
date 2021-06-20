@@ -7,8 +7,8 @@ include_directories(.)
 
 add_executable(HW1
     main.cpp
-    SparsePoly.cpp
-    SparsePoly.h
+        SparsePolynomial.cpp
+        SparsePolynomial.h
     SparsePolyImp.h
     Term.cpp
     Term.h)

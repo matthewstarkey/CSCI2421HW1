@@ -1,12 +1,12 @@
 //
 // Created by Matthew Starkey on 6/16/2021.
 //
-#include "SparsePoly.h"
+#include "SparsePolynomial.h"
 #include <cmath>
 
-SparsePoly::SparsePoly():head(nullptr),size(0){}
+SparsePolynomial::SparsePolynomial():head(nullptr),size(0){}
 
-Term* SparsePoly::getPointerTo(int degree, Term* termPtr) {
+Term* SparsePolynomial::getPointerTo(int degree, Term* termPtr) {
     if(termPtr->getDegree() == degree) {
         return termPtr;
     } else if (termPtr == nullptr) {
@@ -15,7 +15,7 @@ Term* SparsePoly::getPointerTo(int degree, Term* termPtr) {
         return getPointerTo(degree, termPtr->getNext());
     }
 }
-double SparsePoly::evaluate(float x, Term* curr) const {
+double SparsePolynomial::evaluate(float x, Term* curr) const {
     if(curr == nullptr) {
         return 0;
     } else {
@@ -27,7 +27,7 @@ double SparsePoly::evaluate(float x, Term* curr) const {
     }
 }
 
-bool SparsePoly::add(int coeff, int degree) {
+bool SparsePolynomial::add(int coeff, int degree) {
     if(head == nullptr) {
         head = new Term(coeff,degree);
         size++;
@@ -75,7 +75,7 @@ bool removeHelper(int target, Term* ptr) {
     }
 }
 
-bool SparsePoly::remove(int degree) {
+bool SparsePolynomial::remove(int degree) {
     if(head == nullptr) {
         return false;
     } else if (head->getDegree() == degree) {
@@ -92,17 +92,17 @@ bool SparsePoly::remove(int degree) {
 
 }
 
-void SparsePoly::clear() {
+void SparsePolynomial::clear() {
     size = 0;
     head = nullptr;
 }
 
-double SparsePoly::evaluate(float x) const {
+double SparsePolynomial::evaluate(float x) const {
     return evaluate(x,head);
-    }
+}
 
 
-std::ostream& operator<< (std::ostream& out, SparsePoly poly) {
+std::ostream& operator<< (std::ostream& out, SparsePolynomial poly) {
     Term* curr = poly.head;
     if(curr == nullptr) {
         return out;
@@ -133,6 +133,6 @@ std::ostream& operator<< (std::ostream& out, SparsePoly poly) {
     if(curr->getDegree() != 0) {
         return out << curr->getCoeff() << "x^" << curr->getDegree() << std::endl;
     }else{
-            return out << curr->getCoeff() << std::endl;
-        }
+        return out << curr->getCoeff() << std::endl;
+    }
 }
